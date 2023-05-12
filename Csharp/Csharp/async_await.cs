@@ -2,7 +2,7 @@
 
 namespace Study
 {
-    class Program
+    class async_await
     {
         static Task Test()
         {
@@ -11,19 +11,21 @@ namespace Study
             return t;
         }
 
-        static void TestAsync()
+        static async void TestAsync()
         {
             Console.WriteLine("Start TestAsync");
             Task t = Task.Delay(3000);
-            t.Wait();
+            await t;
             Console.WriteLine("End TestAsync");
         }
         
         static void Main(string[] args)
         {
-            Task t = Test();
-            t.Wait();
+            //Task t = Test();
+            //t.Wait();
             
+            TestAsync();
+
             Console.WriteLine("While start");
             while(true){}
         }
